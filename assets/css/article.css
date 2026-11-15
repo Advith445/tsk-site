@@ -1,0 +1,75 @@
+/* TSK article.css · SPEC §4.5 stories, blog index, posts and privacy; §3.4 photo cards.
+   Tokens only (no hex, no new values outside §3). Mobile first; desktop from 1024px. */
+
+/* ---------- Story cards (posts.js) and the blog index list ---------- */
+.story-card{display:grid;gap:var(--s-3);align-content:start;color:var(--ink)}
+.story-card__cover{margin:0}
+.story-card__cover img{display:block;width:100%;height:auto;aspect-ratio:16 / 9;object-fit:cover;border-radius:var(--r-md)}
+.story-card__meta{margin:0;color:var(--ink-600)}
+.story-card__title{margin:0}
+.story-card__title a{color:var(--maroon-700);text-decoration:none}
+.story-card__summary{margin:0}
+.story-card .link-arrow{justify-self:start}
+@media (hover:hover){
+  .story-card__title a:hover{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px}
+}
+
+.blog-index__lede{margin-top:var(--s-3)}
+.blog-list{display:grid;gap:var(--s-7) var(--s-5);margin-top:var(--s-6)}
+.blog-list:empty{min-height:100vh;min-height:100dvh}
+@media (min-width:768px){
+  .blog-list{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+
+/* ---------- Post and privacy column (680px, on rice) ---------- */
+.article{max-width:42.5rem;margin:0 auto;padding:var(--s-6) 0 var(--s-8)}
+@media (min-width:1024px){
+  .article{padding:var(--s-8) 0 var(--s-9)}
+}
+.article__cover{margin:0 0 var(--s-5)}
+.article__cover img{display:block;width:100%;height:auto;aspect-ratio:16 / 9;object-fit:cover;border-radius:var(--r-md)}
+.article__title{margin:0 0 var(--s-2);color:var(--maroon-700);text-wrap:balance}
+.article__meta{margin:0 0 var(--s-5);color:var(--ink-600)}
+
+.article__body > * + *{margin-top:var(--s-4)}
+.article__body h2{margin:var(--s-7) 0 0;font-family:var(--font-display);font-weight:400;font-size:1.375rem;line-height:1.75rem;color:var(--maroon-700)}
+@media (min-width:1024px){
+  .article__body h2{font-size:1.625rem;line-height:2rem}
+}
+.article__body h3{margin:var(--s-5) 0 0;font-family:var(--font-body);font-weight:600;font-size:1rem;line-height:1.375rem;color:var(--maroon-700)}
+.article__body ul,
+.article__body ol{margin:0;padding-left:var(--s-5)}
+.article__body li + li{margin-top:var(--s-2)}
+.article__body a{color:var(--maroon-700);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px}
+.article__body img{display:block;width:100%;height:auto;border-radius:var(--r-md)}
+.article__body .t-small{color:var(--ink-600)}
+
+/* Table of contents ("In this guide") */
+.article__body .article-toc{padding:var(--s-5);border:1px solid var(--line);border-radius:var(--r-md);background:var(--rice-200)}
+.article__body .article-toc h2{margin:0 0 var(--s-3)}
+.article__body .article-toc ul{padding-left:var(--s-5)}
+
+/* Wide tables scroll inside their wrapper */
+.article__body .table-scroll{margin-top:var(--s-6);overflow-x:auto;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain;border:1px solid var(--line);border-radius:var(--r-md);background:var(--rice)}
+.article__body .table-scroll:focus-visible{outline:2px solid var(--maroon-700);outline-offset:2px}
+.article__body .table-scroll table{width:100%;min-width:34.375rem;border-collapse:collapse;font-size:1rem;line-height:1.5rem}
+.article__body .table-scroll caption{caption-side:top;padding:var(--s-4);text-align:left;font-weight:600;background:var(--rice-200)}
+.article__body .table-scroll th,
+.article__body .table-scroll td{padding:var(--s-3) var(--s-4);text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+
+/* CTA blocks: a text card with one button (.btn-wa for catering, .btn-ghost otherwise) */
+.article__body .cta-block{margin-top:var(--s-7)}
+.article__body .cta-block h2{margin:0;font-family:var(--font-display);font-weight:400;font-size:1.375rem;line-height:1.75rem;color:var(--maroon-700)}
+.article__body .cta-block > * + *{margin-top:var(--s-3)}
+.article__body .cta-block__action{margin-top:var(--s-4)}
+
+/* FAQ: a bordered group of text cards */
+.article__body .faq{margin-top:var(--s-7);padding-top:var(--s-5);border-top:2px solid var(--line);gap:var(--s-3)}
+.article__body .faq > h2{margin:0 0 var(--s-2)}
+.article__body .faq .card{margin:0}
+.article__body .card > * + *{margin-top:var(--s-2)}
+.article__body .card h3{margin:0}
+
+/* Team sign-off */
+.article__body .team-note{margin-top:var(--s-7);padding-top:var(--s-5);border-top:1px solid var(--line)}
+.article__body .team-note h2{margin:0 0 var(--s-3)}
