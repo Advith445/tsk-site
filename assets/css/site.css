@@ -1,0 +1,254 @@
+/* TSK – The Spice Kitchen, Kokapet · site.css · SPEC §3
+   Mobile first: base rules are the phone layout, desktop sits in min-width:1024px. */
+
+:root{
+  /* colour */
+  --maroon-900:#2A0902; --maroon-700:#541204; --maroon-600:#6E1A08;
+  --rice:#FBF6EC; --rice-200:#F1E8D8; --rice-muted:#D9C3B0; --line:#DCCDB4;
+  --ink:#26120D; --ink-600:#6B4F47;
+  --turmeric:#E0A93B; --turmeric-300:#EDC46F;
+  --leaf:#2E7D43; --leaf-700:#1F5E33; --chilli:#B3301D; --egg:#A86B00;
+  /* type */
+  --font-display:"Tiro Telugu","Noto Serif Telugu",Georgia,serif;
+  --font-body:"Hind Guntur",system-ui,"Segoe UI",sans-serif;
+  /* space */
+  --s-1:4px; --s-2:8px; --s-3:12px; --s-4:16px; --s-5:24px;
+  --s-6:32px; --s-7:48px; --s-8:64px; --s-9:96px;
+  /* shape */
+  --r-sm:6px; --r-md:14px; --r-full:999px;
+  --shadow-bar:0 -4px 16px rgba(38,18,13,.18);
+  --shadow-pop:0 8px 24px rgba(38,18,13,.16);
+  /* layout */
+  --container:1120px; --gutter:20px;   /* 32px at >=768px */
+  --ease:cubic-bezier(.2,.7,.2,1);
+}
+@media (min-width:768px){:root{--gutter:32px}}
+
+/* ---------- Base ---------- */
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%;scroll-padding-bottom:96px}
+html.nav-open{overflow:hidden}
+body{margin:0;background:var(--rice);color:var(--ink);font-family:var(--font-body);font-size:1rem;line-height:1.625rem;overflow-wrap:break-word}
+h1,h2,h3,p,ul,ol,figure,blockquote{margin:0}
+h1,h2,h3{font-size:inherit;font-weight:inherit}
+img,svg{display:block}
+img{max-width:100%;height:auto}
+a{color:var(--link,var(--maroon-700))}
+a,button{touch-action:manipulation}
+button{font:inherit;color:inherit}
+[hidden]{display:none!important}
+:focus-visible{outline:2px solid var(--ring,var(--maroon-700));outline-offset:2px}
+
+.container{width:100%;max-width:calc(var(--container) + 2 * var(--gutter));margin:0 auto;padding-left:max(var(--gutter),env(safe-area-inset-left));padding-right:max(var(--gutter),env(safe-area-inset-right))}
+.visually-hidden{position:absolute;width:1px;height:1px;margin:-1px;padding:0;border:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ---------- Type (§3.2), px ÷ 16 so the browser's text-size setting scales it ---------- */
+.t-display,.t-h2,.t-h3,.t-telugu{font-family:var(--font-display);font-weight:400}
+.t-body,.t-small,.t-label,.t-dish,.t-price,.t-button,.btn{font-family:var(--font-body)}
+.t-display{font-size:2.5rem;line-height:2.75rem;letter-spacing:-.01em;text-wrap:balance}
+.t-h2{font-size:1.875rem;line-height:2.25rem}
+.t-h3{font-size:1.375rem;line-height:1.75rem}
+.t-telugu{font-size:1.375rem;line-height:2.125rem}
+.t-body{font-size:1rem;line-height:1.625rem;font-weight:400;max-width:62ch}
+.t-small{font-size:.875rem;line-height:1.375rem;font-weight:400}
+.t-label{font-size:.75rem;line-height:1rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase}
+.t-dish{font-size:1rem;line-height:1.375rem;font-weight:600}
+.t-price{font-size:.9375rem;line-height:1.375rem;font-weight:500;font-variant-numeric:tabular-nums}
+.t-button,.btn{font-size:1rem;line-height:1.25rem;font-weight:600}
+
+/* ---------- Surfaces (§3.1) ---------- */
+.section{padding:var(--s-8) 0}
+.section--alt{background:var(--rice-200)}
+.section--maroon{background:var(--maroon-700)}
+/* A maroon surface switches the components inside it to their on-maroon colours. */
+.site-header,.mobile-nav,.site-footer,.action-bar,.order-band,.section--maroon,.page-404{
+  --link:var(--rice); --tint:var(--maroon-600); --ring:var(--turmeric);
+  --wa-fill:var(--rice); --wa-text:var(--leaf-700); --wa-hover:var(--rice-200);
+  color:var(--rice);
+}
+
+/* ---------- Controls (§3.3) ---------- */
+.icon{flex:none;width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--s-2);width:100%;min-height:48px;padding:0 var(--s-5);border:0;border-radius:var(--r-sm);text-align:center;text-decoration:none;cursor:pointer;transition:background-color 150ms var(--ease),color 150ms var(--ease),border-color 150ms var(--ease)}
+.btn:active{transform:translateY(1px)}
+.btn-order{background:var(--turmeric);color:var(--ink)}
+.btn-order:active{background:var(--turmeric-300)}
+.btn-wa{background:var(--wa-fill,var(--leaf-700));color:var(--wa-text,var(--rice))}
+.btn-wa:active{background:var(--wa-hover,var(--leaf))}
+.btn-ghost{border:1.5px solid currentColor;background:transparent;color:var(--link,var(--maroon-700))}
+.btn-ghost:active{background:var(--tint,var(--rice-200))}
+@media (hover:hover){
+  .btn-order:hover{background:var(--turmeric-300)}
+  .btn-wa:hover{background:var(--wa-hover,var(--leaf))}
+  .btn-ghost:hover{background:var(--tint,var(--rice-200))}
+}
+@media (min-width:768px){.btn{width:auto}}
+
+.icon-btn{display:inline-flex;align-items:center;justify-content:center;flex:none;width:44px;height:44px;padding:0;border:0;border-radius:var(--r-sm);background:transparent;color:inherit;cursor:pointer;transition:background-color 150ms var(--ease)}
+.icon-btn .icon{width:24px;height:24px}
+.icon-btn:active{background:var(--tint,var(--rice-200))}
+@media (hover:hover){.icon-btn:hover{background:var(--tint,var(--rice-200))}}
+
+/* <a class="link-arrow" href>Text <span aria-hidden="true">→</span></a> */
+.link-arrow{display:inline-flex;align-items:center;gap:var(--s-1);min-height:44px;color:var(--link,var(--maroon-700));font-weight:600;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px}
+
+/* <div class="chip-group" role="group" aria-labelledby="…"><button class="chip" type="button" aria-pressed="false"> */
+.chip-group{display:flex;flex-wrap:wrap;gap:var(--s-2)}
+.chip{position:relative;display:inline-flex;align-items:center;gap:var(--s-2);min-height:36px;padding:0 var(--s-4);border:1px solid var(--ink-600);border-radius:var(--r-full);background:transparent;color:var(--ink);font-family:var(--font-body);font-size:.875rem;line-height:1.375rem;font-weight:600;white-space:nowrap;text-decoration:none;cursor:pointer;transition:background-color 150ms var(--ease),color 150ms var(--ease),border-color 150ms var(--ease)}
+.chip::after{content:"";position:absolute;inset:-4px 0}
+.chip[aria-pressed="true"],.chip[aria-current="true"]{border-color:var(--maroon-700);background:var(--maroon-700);color:var(--rice)}
+
+/* <ul class="tag-list"><li class="tag"> : static, never focusable */
+.tag-list{display:flex;flex-wrap:wrap;gap:var(--s-2);margin:0;padding:0;list-style:none}
+.tag{display:inline-flex;align-items:center;min-height:32px;padding:0 var(--s-3);border-radius:var(--r-full);background:var(--rice-200);color:var(--ink);font-size:.875rem;line-height:1.375rem}
+.section--alt .tag{background:var(--rice)}
+
+.field{display:flex;flex-direction:column;gap:var(--s-1)}
+.field__label{font-size:.875rem;line-height:1.375rem;font-weight:600}
+.input{width:100%;min-height:48px;margin:0;padding:0 var(--s-3);border:1px solid var(--ink-600);border-radius:var(--r-sm);background:var(--rice);color:var(--ink);font-family:var(--font-body);font-size:max(1rem,16px);line-height:1.625rem;-webkit-appearance:none;appearance:none}
+textarea.input{min-height:96px;padding:var(--s-3);resize:vertical}
+
+/* <span class="diet diet--veg"></span><span class="visually-hidden">Veg</span> */
+.diet{display:inline-flex;align-items:center;justify-content:center;flex:none;width:14px;height:14px;border:1.5px solid currentColor;background:var(--rice)}
+.diet::before{content:""}
+.diet--veg{color:var(--leaf)}
+.diet--veg::before{width:6px;height:6px;border-radius:50%;background:currentColor}
+.diet--egg{color:var(--egg)}
+.diet--egg::before{width:7px;height:7px;border:1.5px solid currentColor;border-radius:50%}
+.diet--nonveg{color:var(--chilli)}
+.diet--nonveg::before{width:7px;height:7px;background:currentColor;clip-path:polygon(50% 0,100% 100%,0 100%)}
+
+/* ---------- Cards and rails (§3.4, §3.8) ---------- */
+.card{--link:initial;--tint:initial;--ring:initial;--wa-fill:initial;--wa-text:initial;--wa-hover:initial;padding:var(--s-5);border:1px solid var(--line);border-radius:var(--r-md);background:var(--rice-200);color:var(--ink)}
+.section--alt .card{background:var(--rice)}
+.photo-card img{width:100%;border-radius:var(--r-md);object-fit:cover}
+
+.rail{display:flex;gap:var(--s-4);overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;scrollbar-width:none}
+.rail::-webkit-scrollbar{display:none}
+.rail > *{flex:none;scroll-snap-align:start}
+
+/* ---------- Skip link, header (§3.5) ---------- */
+.skip-link{--ring:var(--turmeric);position:absolute;top:var(--s-2);left:var(--s-2);z-index:40;display:inline-flex;align-items:center;min-height:44px;padding:0 var(--s-4);border-radius:var(--r-sm);background:var(--rice);color:var(--maroon-700);font-weight:600;transform:translateY(-200%)}
+.skip-link:focus{transform:none}
+
+.site-header{position:relative;z-index:20;background:var(--maroon-700)}
+.site-header__bar{display:flex;align-items:center;justify-content:space-between;gap:var(--s-4);min-height:56px}
+.site-header__brand{display:flex;align-items:center;gap:var(--s-3);min-width:0;min-height:44px;color:var(--rice);text-decoration:none}
+.site-header__logo{flex:none;width:auto;height:40px}
+.site-header__name,.site-header__place{display:block}
+.site-header__place{color:var(--rice-muted)}
+.site-header__nav{display:none}
+
+/* ---------- Mobile nav: a native <dialog>, opened with showModal() ---------- */
+.mobile-nav{position:fixed;inset:0;width:100%;height:100%;max-width:none;max-height:none;margin:0;padding:0 max(var(--gutter),env(safe-area-inset-right)) calc(var(--s-7) + env(safe-area-inset-bottom)) max(var(--gutter),env(safe-area-inset-left));border:0;background:var(--maroon-900);box-shadow:var(--shadow-pop);overflow-y:auto;overscroll-behavior:contain}
+.mobile-nav[open]{display:flex;flex-direction:column;gap:var(--s-5);animation:nav-fade 200ms var(--ease)}
+@keyframes nav-fade{from{opacity:0}}
+.mobile-nav__top{display:flex;align-items:center;justify-content:space-between;gap:var(--s-4);min-height:56px}
+.mobile-nav__title{color:var(--turmeric)}
+.mobile-nav__links{display:flex;flex-direction:column;gap:var(--s-2);margin:0;padding:0;list-style:none}
+.mobile-nav__link{display:block;padding:var(--s-1) 0;color:var(--rice);font-family:var(--font-display);font-size:1.75rem;line-height:2.5rem;text-decoration:none}
+.mobile-nav__hours{color:var(--rice-muted)}
+.mobile-nav__call{display:inline-flex;align-items:center;align-self:flex-start;min-height:44px;color:var(--rice);font-weight:600}
+.social{display:flex;gap:var(--s-2);margin:0;padding:0;list-style:none}
+
+.site-header__link[aria-current="page"],.mobile-nav__link[aria-current="page"]{text-decoration-line:underline;text-decoration-color:var(--turmeric);text-decoration-thickness:2px;text-underline-offset:8px}
+
+/* ---------- Action bar (below 1024px) ---------- */
+.action-bar{position:fixed;right:0;bottom:0;left:0;z-index:30;display:flex;gap:var(--s-2);min-height:calc(64px + env(safe-area-inset-bottom));padding:calc(var(--s-2) - 1px) max(var(--s-3),env(safe-area-inset-right)) calc(var(--s-2) + env(safe-area-inset-bottom)) max(var(--s-3),env(safe-area-inset-left));border-top:1px solid var(--maroon-600);background:var(--maroon-700);box-shadow:var(--shadow-bar)}
+.action-bar__call{flex:none;width:48px;padding:0}
+.action-bar__main{flex:1 1 auto;width:auto}
+
+/* ---------- Footer ---------- */
+.site-footer{padding-bottom:calc(64px + env(safe-area-inset-bottom) + var(--s-5));background:var(--maroon-900)}
+.site-footer__grid{display:grid;gap:var(--s-6);padding-top:var(--s-7);padding-bottom:var(--s-6)}
+.site-footer__brand > * + *{margin-top:var(--s-3)}
+.site-footer__logo{width:auto;height:72px}
+.site-footer__telugu{color:var(--turmeric)}
+.site-footer__blurb{color:var(--rice-muted)}
+.site-footer__heading{margin-bottom:var(--s-2);color:var(--rice-muted)}
+.site-footer__list{display:flex;flex-direction:column;gap:var(--s-2);margin:0;padding:0;list-style:none}
+.site-footer__list li,.site-footer__list a{display:flex;align-items:center;min-width:44px;min-height:44px}
+.site-footer__list a{color:var(--rice);text-decoration:none}
+.site-footer__legal{padding-top:var(--s-5);border-top:1px solid var(--maroon-600);color:var(--rice-muted)}
+@media (hover:hover){
+  .site-header__link:hover,.site-footer__list a:hover{text-decoration-line:underline;text-decoration-thickness:1px;text-underline-offset:4px}
+  .site-header__link:hover{text-underline-offset:8px}
+}
+
+/* ---------- Order band: H4, M7, V5 ----------
+   <section class="order-band"><div class="container order-band__inner [order-band__inner--qr]">
+     <div class="order-band__main"> h2.t-h2, p, ol.order-band__steps, a.btn.btn-order, p.order-band__takeaway </div>
+     <div class="order-band__qr"> div.order-band__qr-tile > img.order-band__qr-img, p.t-small </div>   (Home, desktop) */
+.order-band{padding:var(--s-8) 0;background:var(--maroon-700)}
+.order-band__main > * + *{margin-top:var(--s-4)}
+.order-band__steps{padding-left:1.25em}
+.order-band__steps li + li{margin-top:var(--s-2)}
+.order-band__takeaway{color:var(--rice-muted)}
+.order-band__takeaway a{color:var(--rice)}
+.order-band__qr{display:none}
+
+/* ---------- Warli band (§3.6): maroon surfaces only ---------- */
+.warli{height:24px;background-color:var(--rice);opacity:.6;-webkit-mask:url(/tsk-site/assets/img/warli-band.svg) repeat-x center / auto 100%;mask:url(/tsk-site/assets/img/warli-band.svg) repeat-x center / auto 100%;animation:warli-in 900ms var(--ease)}
+.warli--five{width:150px;margin:0 auto}
+.warli--wait{animation:none;clip-path:inset(0 100% 0 0)}
+@keyframes warli-in{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
+
+/* ---------- Reveal (§3.7): site.js adds these only to sections below the fold ---------- */
+.reveal-wait{opacity:0;transform:translateY(12px)}
+.reveal-in{transition:opacity 400ms var(--ease),transform 400ms var(--ease)}
+
+/* ---------- 404 ---------- */
+.page-404{display:flex;align-items:center;min-height:100vh;min-height:100dvh;padding:var(--s-8) 0;background:var(--maroon-700)}
+.page-404__inner{display:flex;flex-direction:column;align-items:center;gap:var(--s-6);text-align:center}
+.page-404__actions{display:flex;flex-direction:column;gap:var(--s-3);width:100%}
+@media (min-width:768px){.page-404__actions{flex-direction:row;justify-content:center}}
+
+/* ---------- Desktop ---------- */
+@media (min-width:1024px){
+  html{scroll-padding-bottom:0}
+  [id]{scroll-margin-top:88px}
+  body,.t-body{font-size:1.0625rem;line-height:1.75rem}
+  .t-display{font-size:4.25rem;line-height:4.625rem}
+  .t-h2{font-size:2.75rem;line-height:3.125rem}
+  .t-h3{font-size:1.625rem;line-height:2rem}
+  .t-telugu{font-size:1.75rem;line-height:2.625rem}
+  .t-label{font-size:.8125rem;line-height:1.125rem}
+  .t-dish{font-size:1.0625rem;line-height:1.5rem}
+  .t-price{font-size:1rem;line-height:1.5rem}
+  .input{font-size:1.0625rem;line-height:1.75rem}
+  .section,.order-band,.page-404{padding:var(--s-9) 0}
+
+  .site-header{position:sticky;top:0}
+  .site-header__bar{min-height:72px}
+  .site-header__open{display:none}
+  .site-header__nav{display:flex;align-items:center;gap:var(--s-6)}
+  .site-header__links{display:flex;gap:var(--s-5);margin:0;padding:0;list-style:none}
+  .site-header__link{display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;color:var(--rice);font-weight:500;text-decoration:none}
+  .site-header__nav .btn{min-height:44px}
+
+  .action-bar{display:none}
+  .site-footer{padding-bottom:var(--s-5)}
+  .site-footer__grid{grid-template-columns:4fr 2fr 3fr 3fr;gap:var(--s-5)}
+
+  .order-band__inner--qr{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:var(--s-5);align-items:center}
+  .order-band__inner--qr .order-band__main{grid-column:1 / span 7}
+  .order-band__inner--qr .order-band__qr{display:block;grid-column:9 / span 4;color:var(--rice-muted)}
+  .order-band__qr-tile{display:inline-block;margin-bottom:var(--s-3);padding:var(--s-4);border-radius:var(--r-md);background:var(--rice)}
+  .order-band__qr-img{width:160px;height:160px}
+
+  .warli{height:32px}
+  .warli--five{width:200px}
+}
+
+/* ---------- Reduced motion and print ---------- */
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .btn:active{transform:none}
+  .reveal-wait{opacity:1;transform:none}
+  .warli--wait{clip-path:none}
+}
+@media print{
+  .reveal-wait{opacity:1;transform:none}
+  .action-bar{display:none}
+}

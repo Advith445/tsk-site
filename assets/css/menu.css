@@ -1,0 +1,106 @@
+/* TSK – The Spice Kitchen, Kokapet · menu.css · SPEC §5.2, §5.3
+   Menu page only. §3.1 tokens only, no literal colours. Mobile first; the desktop sidebar sits in min-width:1024px.
+   Shared pieces (.chip, .chip-group, .diet, .input, .field, .rail, .btn, .order-band, .visually-hidden) come from site.css. */
+
+/* ---------- M1 Intro ---------- */
+.menu-intro{padding-bottom:var(--s-5)}
+.menu-intro .container > * + *{margin-top:var(--s-4)}
+.menu-key{display:flex;flex-wrap:wrap;align-items:center;gap:var(--s-2) var(--s-4)}
+.menu-key__list{display:flex;flex-wrap:wrap;gap:var(--s-2) var(--s-4);margin:0;padding:0;list-style:none}
+.menu-key__list li{display:inline-flex;align-items:center;gap:var(--s-2)}
+
+/* ---------- Layout (§5.2) ----------
+   .menu-layout > .menu-controls (M2 + .menu-toolbar) + .menu-body.
+   Mobile: .menu-controls is display:contents, so the sticky .menu-toolbar belongs to .menu-layout and releases at its end, before M6. */
+.menu-main{padding-bottom:var(--s-8)}
+.menu-controls{display:contents}
+.menu-search{margin-bottom:var(--s-4)}
+
+/* ---------- M3 Toolbar ---------- */
+.menu-toolbar{position:sticky;top:0;z-index:10;margin-right:calc(-1 * max(var(--gutter),env(safe-area-inset-right)));margin-left:calc(-1 * max(var(--gutter),env(safe-area-inset-left)));background:var(--rice);border-bottom:1px solid var(--line)}
+@media (max-height:479.98px){.menu-toolbar{position:static}}
+
+.menu-diet,.menu-sections{padding-right:max(var(--gutter),env(safe-area-inset-right));padding-left:max(var(--gutter),env(safe-area-inset-left))}
+.menu-diet{align-items:center;min-height:44px}
+.menu-diet .chip{flex:1 1 auto;justify-content:center;gap:var(--s-1);padding:0 var(--s-2)}
+
+/* Section rail: one chip-styled link per section. No scroll-snap here, because snapping would undo the scrollLeft centring done by menu.js. */
+.menu-sections{position:relative;display:flex;align-items:center;gap:var(--s-2);min-height:44px;overflow-x:auto;overflow-y:hidden;overscroll-behavior-x:contain;scrollbar-width:none}
+.menu-sections::-webkit-scrollbar{display:none}
+.menu-sections .chip{flex:none}
+
+/* ---------- Body ---------- */
+.menu-body{min-width:0}
+.menu-body--loading{min-height:100vh;min-height:100dvh}
+.menu-count{min-height:1.375rem;margin-top:var(--s-4);color:var(--ink-600)}
+.menu-results{overflow-anchor:none}
+.menu-body [id],.menu-count{scroll-margin-top:104px}
+
+/* ---------- M4 Popular ---------- */
+.menu-popular{padding-top:var(--s-5)}
+.menu-popular__line{margin-top:var(--s-1);color:var(--ink-600)}
+.menu-popular__rail{margin:var(--s-3) calc(-1 * var(--s-1)) 0;padding:var(--s-1)}
+.popular-card{display:flex;flex-direction:column;gap:var(--s-2);width:min(60vw,240px);color:var(--ink);text-decoration:none}
+.popular-card__photo{width:100%;height:auto;aspect-ratio:4 / 3;border-radius:var(--r-md);object-fit:cover}
+.popular-card__name{overflow-wrap:anywhere}
+.popular-card__price{color:var(--ink-600)}
+.popular-card--text{justify-content:center;min-height:calc(min(60vw,240px) * 3 / 4);padding:var(--s-5);border:1px solid var(--line);border-radius:var(--r-md);background:var(--rice-200)}
+@media (hover:hover){.popular-card:hover .popular-card__name{text-decoration:underline}}
+
+/* ---------- M5 Sections and dish rows ---------- */
+.menu-section{padding-top:var(--s-6)}
+.menu-section__title{overflow-wrap:anywhere}
+.menu-section__blurb{max-width:62ch;margin-top:var(--s-1);color:var(--ink-600)}
+.menu-section__list{margin-top:var(--s-3)}
+
+.dish-row{display:grid;grid-template-columns:14px minmax(0,1fr) auto;column-gap:var(--s-3);padding:var(--s-4) 0;border-top:1px solid var(--line)}
+.dish-row--bare{grid-template-columns:14px minmax(0,1fr)}
+.dish-row.is-target{background:var(--rice-200);box-shadow:0 0 0 var(--s-2) var(--rice-200)}
+.dish-row__mark{position:relative;display:flex;grid-column:1;grid-row:1;margin-top:calc((1.375rem - 14px) / 2)}
+.dish-row__text{grid-column:2;grid-row:1;min-width:0}
+.dish-row__text > * + *{margin-top:var(--s-1)}
+.dish-row__name{overflow-wrap:anywhere}
+.dish-row__popular{color:var(--maroon-700)}
+.dish-row__opt{display:inline-block;max-width:100%}
+.dish-row__opt .diet{margin-right:var(--s-1);vertical-align:-2px}
+.dish-row__desc{color:var(--ink-600)}
+.dish-row__photo{grid-column:3;grid-row:1;align-self:start;width:72px;height:72px;border-radius:var(--r-sm);object-fit:cover}
+
+/* ---------- Empty and load-failure states ---------- */
+.menu-empty,.menu-fail{padding:var(--s-7) 0}
+.menu-empty > * + *,.menu-fail > * + *{margin-top:var(--s-3)}
+.menu-fail__actions{display:flex;flex-direction:column;gap:var(--s-3)}
+
+/* ---------- M6 Footnote ---------- */
+.menu-note{padding:var(--s-6) 0}
+.menu-note__text{max-width:62ch}
+
+@media (min-width:768px){
+  .menu-fail__actions{flex-direction:row}
+}
+
+/* ---------- Desktop: 220px sticky sidebar, two-column rows ---------- */
+@media (min-width:1024px){
+  .menu-main{padding-bottom:var(--s-9)}
+  .menu-layout{display:grid;grid-template-columns:220px minmax(0,1fr);column-gap:var(--s-7);align-items:start}
+  .menu-controls{display:block;grid-column:1;grid-row:1;position:sticky;top:96px;max-height:calc(100vh - 112px);overflow-y:auto;padding:var(--s-1)}
+  .menu-body{grid-column:2;grid-row:1}
+  .menu-count{margin-top:0}
+
+  .menu-search{margin-bottom:var(--s-5)}
+  .menu-toolbar{position:static;margin:0;border-bottom:0;background:none}
+  .menu-diet,.menu-sections{padding-right:0;padding-left:0}
+  .menu-diet{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--s-2);margin-bottom:var(--s-5)}
+  .menu-sections{flex-direction:column;align-items:stretch;min-height:0;overflow:visible}
+  .menu-sections .chip{justify-content:flex-start;border-color:transparent;white-space:normal}
+  .menu-sections .chip[aria-current="true"]{border-color:var(--maroon-700)}
+  @media (hover:hover){.menu-sections .chip:not([aria-current="true"]):hover{background:var(--rice-200)}}
+
+  .menu-popular{padding-top:0}
+  .menu-popular__rail{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--s-5);margin:var(--s-3) 0 0;padding:0;overflow:visible}
+  .popular-card{width:auto}
+  .popular-card--text{min-height:0;aspect-ratio:4 / 3}
+
+  .menu-section__list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:var(--s-7)}
+  .dish-row__mark{margin-top:calc((1.5rem - 14px) / 2)}
+}
