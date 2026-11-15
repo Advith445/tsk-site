@@ -380,3 +380,140 @@ textarea.input{min-height:96px;padding:var(--s-3);resize:vertical}
 
   .guests__list{grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--s-5)}
 }
+
+/* =====================================================================
+   Catering C1–C7 and Visit V1–V5 (SPEC §4.3, §4.4). Tokens only. Mobile first; desktop in min-width:1024px.
+   ===================================================================== */
+
+/* ---------- Shared: FAQ accordion (C6, V4) ---------- */
+.faq-layout{display:grid;gap:var(--s-6)}
+.faq-layout__head > * + *{margin-top:var(--s-3)}
+.faq{display:grid;gap:var(--s-3)}
+.faq__item{border:1px solid var(--line);border-radius:var(--r-md);background:var(--rice)}
+.faq__q{display:flex;align-items:center;justify-content:space-between;gap:var(--s-4);min-height:56px;padding:var(--s-3) var(--s-5);border-radius:var(--r-md);color:var(--maroon-700);cursor:pointer;list-style:none}
+.faq__q::-webkit-details-marker{display:none}
+.faq__chev{transition:transform 150ms var(--ease)}
+.faq__item[open] .faq__chev{transform:rotate(180deg)}
+.faq__a{padding:0 var(--s-5) var(--s-5)}
+
+/* ---------- C1 Hero ---------- */
+.cat-hero__inner{display:flex;flex-direction:column;align-items:flex-start;gap:var(--s-4)}
+.cat-hero__label{color:var(--turmeric)}
+.cat-hero__text{color:var(--rice-muted)}
+.cat-hero__actions{display:flex;flex-direction:column;align-self:stretch;gap:var(--s-3);padding-top:var(--s-3)}
+
+/* ---------- C2 Facts ---------- */
+.facts{padding:var(--s-6) 0}
+.facts__list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--s-3);margin:0;padding:0;list-style:none}
+.fact{padding:var(--s-4) var(--s-3)}
+.fact__value{color:var(--maroon-700);overflow-wrap:anywhere}
+.fact__note{margin-top:var(--s-1);color:var(--ink-600)}
+
+/* ---------- C3 What we cook ---------- */
+.cat-menu__inner{display:grid;gap:var(--s-6)}
+.cat-menu__text > * + *{margin-top:var(--s-4)}
+.cat-menu__media img{width:100%;aspect-ratio:3 / 2;border-radius:var(--r-md);object-fit:cover}
+.cat-menu__media figcaption{margin-top:var(--s-2);color:var(--ink-600)}
+
+/* ---------- C4 How it works ---------- */
+.steps{display:grid;gap:var(--s-4);margin:var(--s-5) 0 0;padding:0;list-style:none;counter-reset:step}
+.steps__item{display:grid;grid-template-columns:44px minmax(0,1fr);gap:var(--s-4);align-items:start;counter-increment:step}
+.steps__item::before{content:counter(step);display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:var(--r-full);background:var(--maroon-700);color:var(--rice);font-family:var(--font-display);font-size:1.375rem;line-height:1.75rem}
+
+/* ---------- C5 What to send ---------- */
+.cat-send__inner{display:grid;gap:var(--s-5)}
+.cat-send__head > * + *{margin-top:var(--s-3)}
+.checklist{display:grid;margin:0;padding:0;list-style:none;border-top:1px solid var(--line)}
+.checklist__item{display:flex;align-items:flex-start;gap:var(--s-3);padding:var(--s-3) 0;border-bottom:1px solid var(--line)}
+.checklist__item .icon{margin-top:var(--s-1);color:var(--maroon-700)}
+
+/* ---------- C7 Quote band (on maroon: .btn-wa takes its inverted colours from .section--maroon) ---------- */
+.quote-band__inner{display:flex;flex-direction:column;align-items:flex-start;gap:var(--s-4)}
+.quote-band__inner .btn{align-self:stretch;margin-top:var(--s-3)}
+.quote-band__talk{color:var(--rice-muted)}
+.quote-band__talk a{color:var(--rice)}
+
+/* The /catering/ action bar's wide button is .btn-wa; tighter padding keeps the label on one line on narrow phones */
+.action-bar .btn-wa{padding:0 var(--s-3)}
+
+/* ---------- V1 Find us ---------- */
+.find-us__title{margin-bottom:var(--s-6)}
+.find-us__grid{display:grid;gap:var(--s-4)}
+.find-us__card > * + *{margin-top:var(--s-4)}
+.find-us address{font-style:normal}
+.visit-label{color:var(--maroon-700)}
+.find-us__actions{display:flex;flex-direction:column;align-items:flex-start;gap:var(--s-2)}
+.find-us__actions .btn{align-self:stretch}
+.find-us__hours-label{margin-top:var(--s-5);padding-top:var(--s-5);border-top:1px solid var(--line)}
+.copy-btn{display:inline-flex;align-items:center;gap:var(--s-2);min-height:44px;padding:0 var(--s-2);border:0;border-radius:var(--r-sm);background:transparent;color:var(--maroon-700);font-family:var(--font-body);font-size:1rem;line-height:1.25rem;font-weight:600;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px;cursor:pointer}
+.copy-btn:active{background:var(--rice)}
+@media (hover:hover){.copy-btn:hover{background:var(--rice)}}
+.contact-list{display:grid;gap:var(--s-2);margin:0;padding:0;list-style:none}
+.contact-row{display:flex;align-items:center;gap:var(--s-3);min-height:56px;color:var(--ink);text-decoration:none}
+.contact-row .icon{color:var(--maroon-700)}
+.contact-row__num,.contact-row__note{display:block}
+.contact-row__note{color:var(--ink-600)}
+a.contact-row .contact-row__num{color:var(--maroon-700);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px}
+
+/* ---------- V2 Reserve ---------- */
+.reserve__inner > * + *{margin-top:var(--s-4)}
+.reserve__inner > .reserve-form{margin-top:var(--s-6)}
+.reserve-form{display:grid;gap:var(--s-5);max-width:560px}
+.reserve-form .btn{justify-self:stretch}
+.field__opt{font-weight:400;color:var(--ink-600)}
+.field__error{color:var(--maroon-700);font-weight:600}
+.input[aria-invalid="true"]{border-color:var(--maroon-700);box-shadow:0 0 0 1px var(--maroon-700)}
+.stepper{display:inline-flex;align-items:center;gap:var(--s-3)}
+.stepper__btn{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;padding:0;border:1px solid var(--ink-600);border-radius:var(--r-full);background:var(--rice);color:var(--maroon-700);cursor:pointer;transition:background-color 150ms var(--ease),color 150ms var(--ease)}
+.stepper__btn:active{background:var(--maroon-700);color:var(--rice)}
+.stepper__btn[aria-disabled="true"]{opacity:.4;cursor:default}
+.stepper__btn[aria-disabled="true"]:active{background:var(--rice);color:var(--maroon-700)}
+.stepper__value{min-width:48px;text-align:center;font-variant-numeric:tabular-nums}
+@media (hover:hover){
+  .stepper__btn:not([aria-disabled="true"]):hover{background:var(--maroon-700);color:var(--rice)}
+}
+.reserve-summary{padding:var(--s-4);border:1px solid var(--line);border-radius:var(--r-md);background:var(--rice);color:var(--ink)}
+.reserve__fine{color:var(--ink-600)}
+
+/* ---------- V3 Inside ---------- */
+.gallery{display:grid;gap:var(--s-4);margin-top:var(--s-6)}
+.gallery img{width:100%;aspect-ratio:1 / 1;border-radius:var(--r-md);object-fit:cover}
+.gallery__hall img{aspect-ratio:3 / 2}
+.gallery figcaption{margin-top:var(--s-2);color:var(--ink-600)}
+.visit-inside__tags{margin-top:var(--s-6)}
+
+@media (min-width:768px){
+  .cat-hero__actions{flex-direction:row;flex-wrap:wrap}
+  .quote-band__inner .btn{align-self:flex-start}
+  .find-us__actions{flex-direction:row;align-items:center;gap:var(--s-4)}
+  .find-us__actions .btn{align-self:auto}
+  .reserve-form .btn{justify-self:start}
+}
+
+@media (min-width:1024px){
+  .facts{padding:var(--s-7) 0}
+  .facts__list{grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--s-5)}
+  .fact{padding:var(--s-5)}
+
+  .cat-menu__inner{grid-template-columns:repeat(12,minmax(0,1fr));gap:var(--s-5);align-items:center}
+  .cat-menu__text{grid-column:1 / span 6}
+  .cat-menu__media{grid-column:7 / span 6}
+
+  .steps{grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--s-5)}
+  .steps__item{grid-template-columns:minmax(0,1fr)}
+
+  .cat-send__inner{grid-template-columns:repeat(12,minmax(0,1fr));gap:var(--s-5);align-items:start}
+  .cat-send__head{grid-column:1 / span 5}
+  .checklist{grid-column:7 / span 6}
+
+  .faq-layout{grid-template-columns:repeat(12,minmax(0,1fr));gap:var(--s-5);align-items:start}
+  .faq-layout__head{grid-column:1 / span 4}
+  .faq{grid-column:5 / span 8}
+
+  .find-us__grid{grid-template-columns:repeat(12,minmax(0,1fr));gap:var(--s-5);align-items:start}
+  .find-us__grid > :first-child{grid-column:1 / span 6}
+  .find-us__grid > :last-child{grid-column:7 / span 6}
+
+  .gallery{grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--s-5)}
+  .gallery__hall{grid-column:1 / -1}
+}
