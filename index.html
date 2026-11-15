@@ -12,6 +12,9 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hind+Guntur:wght@400;500;600&amp;family=Tiro+Telugu&amp;display=swap">
 <link rel="stylesheet" href="/tsk-site/assets/css/site.css">
 <script src="/tsk-site/assets/js/site.js" defer></script>
+<script src="/tsk-site/assets/js/menu-source.js" defer></script>
+<script src="/tsk-site/assets/js/prices.js" defer></script>
+<script src="/tsk-site/assets/js/posts.js" defer></script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -60,7 +63,241 @@
   </dialog>
 </header>
 
-<main id="main"></main>
+<main id="main">
+
+  <!-- H1 Hero -->
+  <section class="hero section--maroon" aria-labelledby="hero-title">
+    <div class="container hero__inner">
+      <p class="t-telugu hero__telugu"><span lang="te">రండి, భోజనం చేద్దాం</span></p>
+      <h1 class="t-display hero__title" id="hero-title">South Indian food, made with love <span class="t-label hero__label">TSK – The Spice Kitchen, a Telugu restaurant in Kokapet, Hyderabad</span></h1>
+      <div class="hero__ring">
+        <img class="hero__img" src="/tsk-site/assets/img/feast-480.webp" srcset="/tsk-site/assets/img/feast-480.webp 480w, /tsk-site/assets/img/feast-960.webp 960w" sizes="(min-width:1024px) 480px, 90vw" width="480" height="480" alt="A TSK spread seen from above: chicken dum biryani at the centre, kheema pulao, prawns biryani, schezwan noodles, two trays of starters, gulab jamun, raita and salan" decoding="async" fetchpriority="high">
+      </div>
+      <p class="t-body hero__text">Andhra and Telangana cooking on Gandipet Main Road, Kokapet. From dum biryanis to ragi sangati with natukodi pulusu, we serve vegetarian and non-vegetarian dishes for lunch and dinner, daily from 11 AM to 11 PM.</p>
+      <div class="hero__actions">
+        <a class="btn btn-order hero__order" href="https://ownly.food/app/brand/BR443647">Order on Ownly</a>
+        <a class="btn btn-ghost" href="/tsk-site/menu/">See the full menu</a>
+      </div>
+    </div>
+    <div class="warli" aria-hidden="true"></div>
+  </section>
+
+  <!-- H2 Trust strip -->
+  <section class="trust" aria-label="Why guests choose TSK">
+    <div class="container">
+      <ul class="trust__list">
+        <li class="trust__item"><svg class="icon" aria-hidden="true"><use href="/tsk-site/assets/icons/sprite.svg#star"/></svg><a class="trust__link t-small" href="https://share.google/lV9jVm2JOlRryp108">4.6 ★ Google rating</a></li>
+        <li class="trust__item"><svg class="icon" aria-hidden="true"><use href="/tsk-site/assets/icons/sprite.svg#clock"/></svg><span class="t-small">Open daily, 11 AM – 11 PM</span></li>
+        <li class="trust__item"><svg class="icon" aria-hidden="true"><use href="/tsk-site/assets/icons/sprite.svg#bag"/></svg><span class="t-small">No delivery fee, no platform fee on Ownly</span></li>
+        <li class="trust__item"><svg class="icon" aria-hidden="true"><use href="/tsk-site/assets/icons/sprite.svg#leaf"/></svg><span class="t-small">Veg and non-veg kitchen</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- H3 Signatures. Prices are filled in by prices.js from the live menu (never typed here). -->
+  <section class="section signatures" aria-labelledby="signatures-title">
+    <div class="container">
+      <div class="signatures__head">
+        <h2 class="t-h2" id="signatures-title">Signatures</h2>
+        <p class="t-body">Seven plates our guests come back for, and the parts of Andhra and Telangana they come from.</p>
+      </div>
+      <ul class="rail signatures__rail">
+        <li class="photo-card signature">
+          <img src="/tsk-site/assets/img/biryani-480.webp" srcset="/tsk-site/assets/img/biryani-480.webp 480w, /tsk-site/assets/img/biryani-960.webp 960w" sizes="(min-width:1024px) 25vw, 320px" width="480" height="600" alt="Chicken dum biryani in a steel handi with a leg piece and egg, with raita and salan" loading="lazy" decoding="async">
+          <p class="t-label signature__region">Hyderabad, Telangana</p>
+          <h3 class="t-h3 signature__name"><a class="signature__link" href="/tsk-site/menu/#chicken-dum-biryani">Chicken Dum Biryani</a></h3>
+          <p class="t-small signature__desc">Long-grain basmati layered over marinated chicken, sealed and slow-cooked on dum. Served with mirchi ka salan and raita, the way Hyderabad eats it.</p>
+          <span class="t-price signature__price" data-price-for="chicken-dum-biryani"></span>
+        </li>
+        <li class="photo-card signature">
+          <img src="/tsk-site/assets/img/kodi-480.webp" srcset="/tsk-site/assets/img/kodi-480.webp 480w, /tsk-site/assets/img/kodi-960.webp 960w" sizes="(min-width:1024px) 25vw, 320px" width="480" height="600" alt="Konaseema kodi chips on a black tray with cashews and a carved carrot flower" loading="lazy" decoding="async">
+          <p class="t-label signature__region">Konaseema, Godavari delta</p>
+          <h3 class="t-h3 signature__name"><a class="signature__link" href="/tsk-site/menu/#konaseema-kodi-chips">Konaseema Kodi Chips</a></h3>
+          <p class="t-small signature__desc">Thin strips of chicken fried crisp and tossed with curry leaves, green chillies and roasted cashews. A favourite from the coconut country of the Godavari delta.</p>
+          <span class="t-price signature__price" data-price-for="konaseema-kodi-chips"></span>
+        </li>
+        <li class="photo-card signature">
+          <img src="/tsk-site/assets/img/ragi-480.webp" srcset="/tsk-site/assets/img/ragi-480.webp 480w, /tsk-site/assets/img/ragi-960.webp 960w" sizes="(min-width:1024px) 25vw, 320px" width="480" height="600" alt="Two ragi sangati balls beside a bowl of naatukodi pulusu" loading="lazy" decoding="async">
+          <p class="t-label signature__region">Rayalaseema, Andhra Pradesh</p>
+          <h3 class="t-h3 signature__name"><a class="signature__link" href="/tsk-site/menu/#ragi-sangati-with-naatukodi-pulusu">Ragi Sangati with Naatukodi Pulusu</a></h3>
+          <p class="t-small signature__desc">Soft balls of finger millet and rice with a fiery country-chicken curry. Break the sangati with your fingers and dip it in the pulusu.</p>
+          <span class="t-price signature__price" data-price-for="ragi-sangati-with-naatukodi-pulusu"></span>
+        </li>
+        <li class="photo-card signature">
+          <img src="/tsk-site/assets/img/wings-480.webp" srcset="/tsk-site/assets/img/wings-480.webp 480w, /tsk-site/assets/img/wings-960.webp 960w" sizes="(min-width:1024px) 25vw, 320px" width="480" height="600" alt="Karimnagar fried wings on a black tray with cashews and red chillies" loading="lazy" decoding="async">
+          <p class="t-label signature__region">Karimnagar, Telangana</p>
+          <h3 class="t-h3 signature__name"><a class="signature__link" href="/tsk-site/menu/#karimnagar-fried-wings">Karimnagar Fried Wings</a></h3>
+          <p class="t-small signature__desc">Chicken wings in a Telangana red-chilli marinade, fried until the edges crackle.</p>
+          <span class="t-price signature__price" data-price-for="karimnagar-fried-wings"></span>
+        </li>
+        <li class="photo-card signature">
+          <img src="/tsk-site/assets/img/mushroom-480.webp" srcset="/tsk-site/assets/img/mushroom-480.webp 480w, /tsk-site/assets/img/mushroom-960.webp 960w" sizes="(min-width:1024px) 25vw, 320px" width="480" height="600" alt="Golinchina mushroom on a black plate with onion and lemon" loading="lazy" decoding="async">
+          <p class="t-label signature__region">Telangana</p>
+          <h3 class="t-h3 signature__name"><a class="signature__link" href="/tsk-site/menu/#golinchina-mushroom">Golinchina Mushroom</a></h3>
+          <p class="t-small signature__desc">Golinchina is how Telangana pan-roasts meat with onion, chilli and garam masala. We cook mushrooms the same way, for vegetarians who like heat.</p>
+          <span class="t-price signature__price" data-price-for="golinchina-mushroom"></span>
+        </li>
+        <li class="photo-card signature">
+          <img src="/tsk-site/assets/img/kurkure-480.webp" srcset="/tsk-site/assets/img/kurkure-480.webp 480w, /tsk-site/assets/img/kurkure-960.webp 960w" sizes="(min-width:1024px) 25vw, 320px" width="480" height="600" alt="Paneer kurkure on a black plate with mint chutney" loading="lazy" decoding="async">
+          <p class="t-label signature__region">Kokapet, Hyderabad</p>
+          <h3 class="t-h3 signature__name"><a class="signature__link" href="/tsk-site/menu/#paneer-kurkure">Paneer Kurkure</a></h3>
+          <p class="t-small signature__desc">Paneer in a crunchy, spiced coating, fried golden outside and soft within. A favourite with our vegetarian guests.</p>
+          <span class="t-price signature__price" data-price-for="paneer-kurkure"></span>
+        </li>
+        <li class="photo-card signature">
+          <img src="/tsk-site/assets/img/apricot-480.webp" srcset="/tsk-site/assets/img/apricot-480.webp 480w, /tsk-site/assets/img/apricot-960.webp 960w" sizes="(min-width:1024px) 25vw, 320px" width="480" height="600" alt="Apricot delight in a white cup on a black plate, topped with cream and chopped nuts" loading="lazy" decoding="async">
+          <p class="t-label signature__region">Hyderabad, Telangana</p>
+          <h3 class="t-h3 signature__name"><a class="signature__link" href="/tsk-site/menu/#apricot-delight">Apricot Delight</a></h3>
+          <p class="t-small signature__desc">Stewed apricot under a layer of silky cream, topped with chopped nuts and served chilled. The sweet way to finish a Telugu meal, in a small cup or a large one to share.</p>
+          <span class="t-price signature__price" data-price-for="apricot-delight"></span>
+        </li>
+        <li class="signature signature-all">
+          <a class="signature-all__link t-h3" href="/tsk-site/menu/">See the full menu <span aria-hidden="true">→</span></a>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- H4 Order band -->
+  <section class="order-band">
+    <div class="container order-band__inner">
+      <div class="order-band__main">
+        <h2 class="t-h2">Order straight from our kitchen</h2>
+        <p class="t-body">Ownly charges no delivery fee, no platform fee and no extra charges.</p>
+        <ol class="order-band__steps t-body">
+          <li>Tap Order on Ownly. TSK opens in the Ownly app.</li>
+          <li>Choose your dishes.</li>
+          <li>Pay and track your order in Ownly.</li>
+        </ol>
+        <a class="btn btn-order" href="https://ownly.food/app/brand/BR443647">Order on Ownly</a>
+        <p class="order-band__takeaway t-body">Takeaway? Call <a href="tel:+919949051777">+91 99490 51777</a> and we will have it ready.</p>
+      </div>
+      <!-- [MISSING: /tsk-site/assets/img/ownly-qr.svg, a QR of ORDER_URL] -->
+    </div>
+  </section>
+
+  <!-- H5 Story -->
+  <section class="section story" aria-labelledby="story-title">
+    <div class="container story__inner">
+      <div class="story__intro">
+        <h2 class="t-h2" id="story-title">Our story</h2>
+        <p class="t-body">Every Telugu family has a dish that means home. A grandmother's natukodi pulusu, a festival pulao, pappu with a spoon of ghee and avakaya. The Spice Kitchen cooks those recipes from both Telugu states, and serves them the way a Telugu host would.</p>
+      </div>
+      <figure class="story__media">
+        <img src="/tsk-site/assets/img/mural-480.webp" srcset="/tsk-site/assets/img/mural-480.webp 480w, /tsk-site/assets/img/mural-960.webp 960w" sizes="(min-width:1024px) 50vw, 100vw" width="480" height="600" alt="A TSK booth beneath a mural of Konaseema palm groves and a painted Telugu feast" loading="lazy" decoding="async">
+        <figcaption class="t-small">Murals of Konaseema and Telugu feasts line our dining room.</figcaption>
+      </figure>
+      <div class="story__close">
+        <p class="t-telugu story__telugu"><span lang="te">కడుపు నిండా, మనసు నిండా.</span></p>
+        <p class="t-body">A full stomach, and a full heart.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- H6 Catering teaser -->
+  <section class="section section--alt teaser" aria-labelledby="teaser-title">
+    <div class="container teaser__inner">
+      <div class="teaser__text">
+        <p class="t-label teaser__label">Catering by TSK</p>
+        <h2 class="t-h2" id="teaser-title">Catering across Hyderabad</h2>
+        <p class="t-body">From gatherings of 8 to events with 200+ guests, we cook biryanis, pulaos, kebabs and Telugu favourites for house parties, poojas, birthdays, office meals and weddings.</p>
+        <ul class="tag-list teaser__tags">
+          <li class="tag">Poojas</li>
+          <li class="tag">Birthdays</li>
+          <li class="tag">Office lunches</li>
+          <li class="tag">Weddings</li>
+          <li class="tag">Bulk biryani</li>
+        </ul>
+        <div class="teaser__actions">
+          <a class="btn btn-wa" href="https://wa.me/919398693051?text=Hi%20TSK%20Kokapet%2C%20I%27d%20like%20a%20catering%20quote.%0AEvent%20date%20and%20serving%20time%3A%0ANumber%20of%20guests%3A%0ADelivery%20area%3A%0AOccasion%3A%0AVeg%2Fnon-veg%20preferences%3A%0APreferred%20dishes%3A%0ADelivery%2Fsetup%2Fequipment%2Fstaff%20requirements%3A"><svg class="icon" aria-hidden="true"><use href="/tsk-site/assets/icons/sprite.svg#whatsapp"/></svg>Ask for a catering quote</a>
+          <a class="link-arrow" href="/tsk-site/catering/">Explore catering in Hyderabad <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+      <div class="teaser__media">
+        <img src="/tsk-site/assets/img/mutton-biryani-480.webp" srcset="/tsk-site/assets/img/mutton-biryani-480.webp 480w, /tsk-site/assets/img/mutton-biryani-960.webp 960w" sizes="(min-width:1024px) 50vw, 100vw" width="480" height="320" alt="A handi of TSK mutton biryani with raita and salan" loading="lazy" decoding="async">
+      </div>
+    </div>
+  </section>
+
+  <!-- H7 Inside -->
+  <section class="section inside" aria-labelledby="inside-title">
+    <div class="container inside__inner">
+      <div class="inside__text">
+        <h2 class="t-h2" id="inside-title">Family dining in Kokapet</h2>
+        <p class="t-body">Join us at TSK – The Spice Kitchen on Gandipet Main Road for Andhra and Telangana food, with vegetarian and non-vegetarian choices for lunch or dinner.</p>
+        <p class="t-body">Settle into air-conditioned family booths or our banana-leaf garden room for groups, surrounded by murals of Telugu feasts.</p>
+        <a class="link-arrow" href="/tsk-site/visit/#reserve">Request a table <span aria-hidden="true">→</span></a>
+      </div>
+      <div class="inside__media">
+        <figure class="inside__hall">
+          <img src="/tsk-site/assets/img/hall-480.webp" srcset="/tsk-site/assets/img/hall-480.webp 480w, /tsk-site/assets/img/hall-960.webp 960w" sizes="(min-width:1024px) 50vw, 100vw" width="480" height="320" alt="TSK's main hall: marble-top tables and grey booths beneath arched murals of Telugu feasts" loading="lazy" decoding="async">
+          <figcaption class="t-small">The main hall, with murals of Telugu feasts in every arch</figcaption>
+        </figure>
+        <figure>
+          <img src="/tsk-site/assets/img/booths-480.webp" srcset="/tsk-site/assets/img/booths-480.webp 480w, /tsk-site/assets/img/booths-960.webp 960w" sizes="(min-width:1024px) 50vw, 100vw" width="480" height="480" alt="Booths under the arched murals in the main hall" loading="lazy" decoding="async">
+          <figcaption class="t-small">Family booths</figcaption>
+        </figure>
+        <figure>
+          <img src="/tsk-site/assets/img/garden-480.webp" srcset="/tsk-site/assets/img/garden-480.webp 480w, /tsk-site/assets/img/garden-960.webp 960w" sizes="(min-width:1024px) 50vw, 100vw" width="480" height="480" alt="The garden room, painted with banana leaves and flamingos, with copper pendant lights" loading="lazy" decoding="async">
+          <figcaption class="t-small">The garden room, good for groups</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- H8 Guests -->
+  <section class="section section--alt guests" aria-labelledby="guests-title">
+    <div class="container">
+      <h2 class="t-h2" id="guests-title">What guests say</h2>
+      <a class="guests__rating" href="https://share.google/lV9jVm2JOlRryp108">4.6 ★ Google rating, see the reviews</a>
+      <div class="guests__list">
+        <figure class="card quote">
+          <blockquote class="t-h3">One of the best biryanis in Kokapet. Flavourful, aromatic and perfectly cooked.</blockquote>
+          <figcaption class="t-small">Google review</figcaption>
+        </figure>
+        <figure class="card quote">
+          <blockquote class="t-h3">Amazing food. Perfect spice. Must visit with family.</blockquote>
+          <figcaption class="t-small">EazyDiner guest</figcaption>
+        </figure>
+        <figure class="card quote">
+          <blockquote class="t-h3">Really good food in quality, quantity and pricing.</blockquote>
+          <figcaption class="t-small">EazyDiner guest</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- H9 Find us -->
+  <section class="section find" aria-labelledby="find-title">
+    <div class="container find__inner">
+      <h2 class="t-h2" id="find-title">Find us in Kokapet on Gandipet Main Road</h2>
+      <div class="find__block">
+        <p class="t-label find__label">Address</p>
+        <address class="t-body">TSK – The Spice Kitchen<br>Ground Floor, Shop No. 9 &amp; 10,<br>Raichandani Business Bay, Gandipet Main Road,<br>Kokapet, Hyderabad, Telangana 500075</address>
+      </div>
+      <div class="find__block">
+        <p class="t-label find__label">Hours</p>
+        <p class="t-body">11:00 AM – 11:00 PM, every day<br>Open every day for lunch and dinner</p>
+      </div>
+      <p class="t-body">Minutes from Narsingi, Neopolis, Kokapet SEZ and the Financial District. Guests come to us from Gandipet, Nanakramguda, Manikonda and Tellapur.</p>
+      <div class="find__actions">
+        <a class="btn btn-ghost" href="https://www.google.com/maps/dir/?api=1&amp;destination=TSK-The+Spice+Kitchen+Kokapet&amp;destination_place_id=ChIJvzax7L6VyzsRnm5pEhH_cTI">Get directions</a>
+        <a class="link-arrow" href="/tsk-site/visit/">Visit and table requests <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- H10 Stories: posts.js (Step 6) renders the cards and removes [hidden] -->
+  <section class="section section--alt stories" aria-labelledby="stories-title" hidden>
+    <div class="container">
+      <h2 class="t-h2" id="stories-title">From Our Kitchen</h2>
+      <p class="t-body stories__sub">Stories behind our dishes, and notes from the kitchen.</p>
+      <div class="stories__grid" data-posts-limit="3"></div>
+      <a class="link-arrow" href="/tsk-site/blog/">See all stories <span aria-hidden="true">→</span></a>
+    </div>
+  </section>
+
+</main>
 
 <footer class="site-footer">
   <div class="warli" aria-hidden="true"></div>
